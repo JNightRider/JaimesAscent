@@ -48,7 +48,6 @@ import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.scene.Node;
 import jme3test.jaimesascent.screen.GameGUIScreen;
-import jme3test.jaimesascent.ui.PauseMenu;
 import jme3test.jaimesascent.ui.WindosListener;
 import jme3test.jaimesascent.ui.Window;
 
@@ -99,11 +98,10 @@ public class GameState extends BaseAppState implements WindosListener<Integer> {
 
     @Override
     public void doAction(Integer value) {
-        boolean b = value == Window.OPTION_HIDE;
-        enableAll(b);
+        pause(value == Window.OPTION_HIDE);
     }
 
-    private void enableAll(boolean b) {
+    private void pause(boolean b) {
         chaseCam.setEnabled(b);
         moveControl.setEnabled(b);
         physicsCharacter.setEnabled(b);
@@ -162,7 +160,7 @@ public class GameState extends BaseAppState implements WindosListener<Integer> {
         inputManager.addListener((ActionListener) (String string, boolean bln, float f) -> {
             if ("Mouse".equals(string) && !uiScreen.getWindow().isVisible()) {
                 inputManager.setCursorVisible(bln);
-                enableAll(!bln);
+                pause(!bln);
             }
         }, "Mouse");
         inputManager.addListener(moveControl, "Jump");
