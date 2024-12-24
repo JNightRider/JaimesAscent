@@ -35,7 +35,7 @@ package jme3test.jaimesascent.ui;
  * @author wil
  * @param <T> type
  */
-public interface WindosListener<T> {
+public interface WindowListener<T> {
     
     void doAction(T value);
 }

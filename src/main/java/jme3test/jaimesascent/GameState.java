@@ -48,8 +48,8 @@ import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
 import com.jme3.scene.Node;
 import jme3test.jaimesascent.screen.GameGUIScreen;
-import jme3test.jaimesascent.ui.WindosListener;
 import jme3test.jaimesascent.ui.Window;
+import jme3test.jaimesascent.ui.WindowListener;
 
 /**
  *
@@ -57,7 +57,7 @@ import jme3test.jaimesascent.ui.Window;
  *
  * @author rickard
  */
-public class GameState extends BaseAppState implements WindosListener<Integer> {
+public class GameState extends BaseAppState implements WindowListener<Integer> {
 
     private final BulletAppState physicsState;
     private InputManager inputManager;

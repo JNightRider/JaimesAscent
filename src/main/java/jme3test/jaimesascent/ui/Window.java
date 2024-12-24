@@ -83,7 +83,7 @@ public class Window extends Panel {
     
     private Fader fader;
     private boolean visible;
-    private final List<WindosListener<Integer>> windosListeners;
+    private final List<WindowListener<Integer>> windosListeners;
     
     protected Container rootPane;
     protected ControlLayout.RootPane pane;
@@ -97,7 +97,7 @@ public class Window extends Panel {
     }
     
     protected final void fireWindosListener(int op) {
-        for (final WindosListener<Integer> wl : this.windosListeners) {
+        for (final WindowListener<Integer> wl : this.windosListeners) {
             if (wl == null) {
                 continue;
             }
@@ -105,11 +105,11 @@ public class Window extends Panel {
         }
     }
     
-    public void addWindosListener(WindosListener<Integer> wl) {
+    public void addWindosListener(WindowListener<Integer> wl) {
         this.windosListeners.add(wl);
     }
     
-    public void removeWindosListener(WindosListener<Integer> wl) {
+    public void removeWindosListener(WindowListener<Integer> wl) {
         this.windosListeners.remove(wl);
     }
     
