@@ -79,7 +79,7 @@ public class GameState extends BaseAppState implements WindosListener<Integer> {
     }
 
     @Override
-    protected void initialize(Application app) {        
+    protected void initialize(Application app) {
 
         this.inputManager = app.getInputManager();
         this.cam = app.getCamera();
