@@ -112,7 +112,7 @@ public class MovementControl extends AbstractControl implements ActionListener {
     }
 
     @Override
-    public void onAction(String binding, boolean value, float tpf) { 
+    public void onAction(String binding, boolean value, float tpf) {
         switch (binding) {
             case "Strafe Left" -> {
                 leftStrafe = value;
