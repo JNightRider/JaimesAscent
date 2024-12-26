@@ -45,7 +45,6 @@ import com.simsilica.lemur.core.GuiControl;
 import com.simsilica.lemur.effect.AbstractEffect;
 import com.simsilica.lemur.effect.Effect;
 import com.simsilica.lemur.effect.EffectInfo;
-import e.g.jme3hudl.ControlLayout;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,10 +85,10 @@ public class Window extends Panel {
     private final List<WindowListener<Integer>> windosListeners;
     
     protected Container rootPane;
-    protected ControlLayout.RootPane pane;
+    protected MyLayout.RootPane pane;
     protected Application application;
     
-    public Window(ControlLayout.RootPane pane, Application application) {
+    public Window(MyLayout.RootPane pane, Application application) {
         this.windosListeners = new ArrayList<>();
         this.application = application;
         this.pane = pane;
@@ -122,18 +121,18 @@ public class Window extends Panel {
     private void initComponents() {
         setBackground(null);
         
-        ControlLayout layout = new ControlLayout(pane);
+        MyLayout layout = new MyLayout(pane);
         GuiControl control = getControl(GuiControl.class);
         
         fader = new Fader();
-        rootPane = new Container(new ControlLayout(pane));
+        rootPane = new Container(new MyLayout(pane));
         
         control.addListener(new ResizeListener());
         control.setLayout(layout);
         
-        layout.addChild(fader, ControlLayout.Alignment.Center, false);
-        layout.addChild(rootPane, ControlLayout.Alignment.Center, false);        
-        layout.setAttribute(ControlLayout.POSITION, rootPane, new Vector3f(0, 0, 1));
+        layout.addChild(fader, MyLayout.Alignment.Center, false);
+        layout.addChild(rootPane, MyLayout.Alignment.Center, false);        
+        layout.setAttribute(MyLayout.POSITION, rootPane, new Vector3f(0, 0, 1));
         
         // === ------------------------------------------------------------- ===
         Effect<Panel> show = new AbstractEffect<Panel>("open/close") {

@@ -33,7 +33,7 @@ package jme3test.jaimesascent.screen;
 
 import com.jme3.math.Vector3f;
 import com.simsilica.lemur.Button;
-import e.g.jme3hudl.ControlLayout;
+import jme3test.jaimesascent.ui.MyLayout;
 import jme3test.jaimesascent.ui.PauseMenu;
 import jme3test.jaimesascent.ui.UIImage;
 import jme3test.jaimesascent.ui.Window;
@@ -47,11 +47,11 @@ public class GameGUIScreen extends AbstractScreen {
     
     @Override
     protected void init() {
-        ControlLayout layout = (ControlLayout) rootContainer.getLayout();
+        MyLayout layout = (MyLayout) rootContainer.getLayout();
                 
         window = new PauseMenu(layout.getRootPane(), getApplication());
         window.setPreferredSize(layout.getRootPane().getResolution().clone());
-        rootContainer.addChild(window, ControlLayout.Alignment.Center, false);        
+        rootContainer.addChild(window, MyLayout.Alignment.Center, false);        
         getApplication().getInputManager()
                         .setMouseCursor(createJmeCursorFromClassPath("Interface/UI/cursor_g.png", getApplication().getAssetManager()));
         
@@ -61,8 +61,8 @@ public class GameGUIScreen extends AbstractScreen {
         menu.addClickCommands((source) -> {
             window.setVisible(true);
         });
-        rootContainer.addChild(menu, ControlLayout.Alignment.RightTop, true);
-        layout.setAttribute(ControlLayout.POSITION, menu, new Vector3f(20, 20, 0));
+        rootContainer.addChild(menu, MyLayout.Alignment.RightTop, true);
+        layout.setAttribute(MyLayout.POSITION, menu, new Vector3f(20, 20, 0));
     }
 
     public Window getWindow() {

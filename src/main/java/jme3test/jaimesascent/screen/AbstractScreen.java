@@ -41,10 +41,10 @@ import com.jme3.texture.Image;
 import com.jme3.texture.Texture;
 import com.jme3.util.BufferUtils;
 import com.simsilica.lemur.Container;
-import e.g.jme3hudl.ControlLayout;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 import jme3test.jaimesascent.Main;
+import jme3test.jaimesascent.ui.MyLayout;
 
 /**
  * @author wil
@@ -56,7 +56,7 @@ public abstract class AbstractScreen extends BaseAppState {
     @Override
     protected void initialize(Application app) {
         AppSettings settings = ((Main) app).getSettings();
-        ControlLayout layout = new ControlLayout(ControlLayout.onCreateRootPane(new Vector3f(settings.getWidth(), settings.getHeight(), 1), new Vector3f(1024, 576, 1)));
+        MyLayout layout = new MyLayout(MyLayout.onCreateRootPane(new Vector3f(settings.getWidth(), settings.getHeight(), 1), new Vector3f(1024, 576, 1)));
 
         rootContainer = new Container();
         rootContainer.setPreferredSize(new Vector3f(layout.getRootPane().getWindow().clone()));

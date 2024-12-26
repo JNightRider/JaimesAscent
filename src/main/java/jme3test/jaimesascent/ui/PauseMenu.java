@@ -41,7 +41,6 @@ import com.simsilica.lemur.HAlignment;
 import com.simsilica.lemur.Label;
 import com.simsilica.lemur.VAlignment;
 import com.simsilica.lemur.style.ElementId;
-import e.g.jme3hudl.ControlLayout;
 
 /**
  * @author wil
@@ -51,18 +50,18 @@ public class PauseMenu extends Window {
     public static final int OPTION_RESUME = 2;
     public static final int OPTION_EXIT   = 3;
 
-    public PauseMenu(ControlLayout.RootPane pane, Application application) {
+    public PauseMenu(MyLayout.RootPane pane, Application application) {
         super(pane, application);
         initComponents();
     }
     
     private void initComponents() {
-        ControlLayout layout = new ControlLayout(pane);
+        MyLayout layout = new MyLayout(pane);
         
         Container leftPanel = new Container(layout);        
         leftPanel.setBackground(new UIImage("Interface/UI/panel_01.png"));
         leftPanel.setPreferredSize(new Vector3f(500, 700, 0));
-        getRootPane().addChild(leftPanel, ControlLayout.Alignment.LeftCenter, false);
+        getRootPane().addChild(leftPanel, MyLayout.Alignment.LeftCenter, false);
 
         Label title = new Label("Jaimes Ascent");
         title.setPreferredSize(new Vector3f(leftPanel.getPreferredSize().x - 25, 50, 0));
@@ -71,9 +70,9 @@ public class PauseMenu extends Window {
         title.setTextHAlignment(HAlignment.Left);
         title.setTextVAlignment(VAlignment.Center);
         
-        leftPanel.addChild(title, ControlLayout.Alignment.LeftTop, false);
-        layout.setAttribute(ControlLayout.POSITION, title, new Vector3f(25, 80, 1));
-        layout.setAttribute(ControlLayout.FONT_SIZE, title, 35.0f);
+        leftPanel.addChild(title, MyLayout.Alignment.LeftTop, false);
+        layout.setAttribute(MyLayout.POSITION, title, new Vector3f(25, 80, 1));
+        layout.setAttribute(MyLayout.FONT_SIZE, title, 35.0f);
         
         Label nameMenu = new Label("Pause Menu");
         nameMenu.setPreferredSize(new Vector3f(leftPanel.getPreferredSize().x - 25, 50, 0));
@@ -82,9 +81,9 @@ public class PauseMenu extends Window {
         nameMenu.setTextHAlignment(HAlignment.Left);
         nameMenu.setTextVAlignment(VAlignment.Center);
         
-        leftPanel.addChild(nameMenu, ControlLayout.Alignment.LeftTop, false);
-        layout.setAttribute(ControlLayout.POSITION, nameMenu, new Vector3f(25, 115, 1));
-        layout.setAttribute(ControlLayout.FONT_SIZE, nameMenu, 25.0f);
+        leftPanel.addChild(nameMenu, MyLayout.Alignment.LeftTop, false);
+        layout.setAttribute(MyLayout.POSITION, nameMenu, new Vector3f(25, 115, 1));
+        layout.setAttribute(MyLayout.FONT_SIZE, nameMenu, 25.0f);
         
         Button buttonResume = new Button("Resume", new ElementId("MyButton"));
         buttonResume.setBackground(new UIImage("Interface/UI/button_01.png"));
@@ -97,9 +96,9 @@ public class PauseMenu extends Window {
             setVisible(false);
         });
         
-        leftPanel.addChild(buttonResume, ControlLayout.Alignment.LeftCenter, false);
-        layout.setAttribute(ControlLayout.POSITION, buttonResume, new Vector3f(50, 30, 1));
-        layout.setAttribute(ControlLayout.FONT_SIZE, buttonResume, 20.0f);
+        leftPanel.addChild(buttonResume, MyLayout.Alignment.LeftCenter, false);
+        layout.setAttribute(MyLayout.POSITION, buttonResume, new Vector3f(50, 30, 1));
+        layout.setAttribute(MyLayout.FONT_SIZE, buttonResume, 20.0f);
         
         Button button2 = new Button("Exit", new ElementId("MyButton"));
         button2.setBackground(new UIImage("Interface/UI/button_01.png"));
@@ -113,9 +112,9 @@ public class PauseMenu extends Window {
             System.exit(0);
         });
         
-        leftPanel.addChild(button2, ControlLayout.Alignment.LeftCenter, false);
-        layout.setAttribute(ControlLayout.POSITION, button2, new Vector3f(50, -30, 1));
-        layout.setAttribute(ControlLayout.FONT_SIZE, button2, 20.0f);        
+        leftPanel.addChild(button2, MyLayout.Alignment.LeftCenter, false);
+        layout.setAttribute(MyLayout.POSITION, button2, new Vector3f(50, -30, 1));
+        layout.setAttribute(MyLayout.FONT_SIZE, button2, 20.0f);        
         setAlpha(0);
     }
 }
